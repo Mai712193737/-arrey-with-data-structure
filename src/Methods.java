@@ -10,10 +10,8 @@ public class Methods {
     }
 
     public void addAt(int index, int val) {
-        if (numOfelement >= array.length) {
-            System.out.println("Array is full! Cannot add element.");
-            return;
-        }
+       checkIffull();
+
         for (int i = numOfelement - 1; i >= index; i--) {
             array[i + 1] = array[i];
         }
@@ -55,11 +53,13 @@ public class Methods {
         }
     }
 
-    public void checkIffull() {
+    public boolean checkIffull() {
         if (numOfelement == sizeOfArr) {
             System.out.println("Array is full!");
+            return true;
         } else {
             System.out.println("Array is not full. Free spaces: " + (sizeOfArr - numOfelement));
+            return false;
         }
     }
 
